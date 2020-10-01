@@ -35,8 +35,20 @@ function sendMessage(name, content) {
 
 function addMessageToScreen(message) {
   var div = document.createElement("div");
+  div.color = "green";
   div.innerHTML =
-    "<b>" + message.name + "</b>:" + "<i>" + message.content + "</i>";
+    '<b style="color:' +
+    getRandomColor() +
+    ';">' +
+    message.name +
+    "</b>:" +
+    "<i>" +
+    message.content +
+    "</i>";
   div.classList.add("message");
   document.querySelector(".text-area").appendChild(div);
+}
+//boja
+function getRandomColor() {
+  return "#" + Math.floor(Math.random() * 0xffffff).toString(16);
 }
